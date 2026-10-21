@@ -1,0 +1,26 @@
+{
+  "name": "immersive-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"index.html\""
+  },
+  "dependencies": {
+    "@dimforge/rapier3d": "^0.20.0",
+    "@supabase/supabase-js": "^2.112.3",
+    "gsap": "^3.12.5",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.6",
+    "vite": "^5.0.0",
+    "vite-plugin-wasm": "^3.6.0"
+  }
+}

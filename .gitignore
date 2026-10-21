@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+portal/node_modules/
+
+# Builds
+dist/
+portal/.next/
+out/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+portal/.env
+!**/.env.example
+
+# Logs
+*.log
+portal.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Misc
+coverage/
+.vercel/

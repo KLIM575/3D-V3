@@ -1,0 +1,122 @@
+export const projects = [
+  {
+    id: 'quantum-realm',
+    number: '01',
+    title: 'Quantum Realm',
+    category: 'Interactive Experience',
+    client: 'Science Museum',
+    year: '2024',
+    description: 'Immersive 3D experience exploring the subatomic universe with real-time particle simulations and quantum mechanics visualization.',
+    tags: ['WebGL', 'Shaders', 'Physics', 'Particles'],
+    color: '#00f0ff',
+    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80'
+  },
+  {
+    id: 'neon-district',
+    number: '02',
+    title: 'Neon District',
+    category: 'Interactive Narrative',
+    client: 'Netflix',
+    year: '2024',
+    description: 'Cyberpunk-themed interactive narrative with dynamic lighting, volumetric fog, and branching storylines.',
+    tags: ['Three.js', 'Post-FX', 'Story', 'Lighting'],
+    color: '#ff006e',
+    image: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80'
+  },
+  {
+    id: 'aurora-borealis',
+    number: '03',
+    title: 'Aurora Borealis',
+    category: 'Real-time Simulation',
+    client: 'National Geographic',
+    year: '2024',
+    description: 'Real-time aurora simulation using GPU-computed particle systems and atmospheric scattering models.',
+    tags: ['WebGPU', 'Particles', 'Nature', 'Simulation'],
+    color: '#7b2dff',
+    image: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80'
+  },
+  {
+    id: 'synthwave-radio',
+    number: '04',
+    title: 'Synthwave Radio',
+    category: 'Audio Visualizer',
+    client: 'Spotify',
+    year: '2023',
+    description: 'Audio-reactive visualizer with retro-futuristic aesthetics and real-time frequency analysis.',
+    tags: ['Audio', 'Reactive', 'Retro', 'WebAudio'],
+    color: '#ff6b35',
+    image: 'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=800&q=80'
+  },
+  {
+    id: 'ocean-depths',
+    number: '05',
+    title: 'Ocean Depths',
+    category: 'Exploration Experience',
+    client: 'NOAA',
+    year: '2023',
+    description: 'Underwater exploration experience with fluid dynamics, caustics, and marine life simulations.',
+    tags: ['Simulation', 'Water', '3D', 'Fluid'],
+    color: '#0077b6',
+    image: 'https://images.unsplash.com/photo-1551244072-5d12893278ab?w=800&q=80'
+  },
+  {
+    id: 'neural-network',
+    number: '06',
+    title: 'Neural Network',
+    category: 'Data Visualization',
+    client: 'Google AI',
+    year: '2023',
+    description: 'Visualization of AI decision-making through abstract data art and real-time neural network rendering.',
+    tags: ['AI', 'Data Viz', 'Abstract', 'ML'],
+    color: '#e63946',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80'
+  },
+  {
+    id: 'cosmic-dance',
+    number: '07',
+    title: 'Cosmic Dance',
+    category: 'Interactive Installation',
+    client: 'NASA',
+    year: '2023',
+    description: 'Interactive choreography between celestial bodies and gravitational forces in real-time.',
+    tags: ['Physics', 'Space', 'Interactive', 'Gravity'],
+    color: '#f4a261',
+    image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80'
+  },
+  {
+    id: 'digital-garden',
+    number: '08',
+    title: 'Digital Garden',
+    category: 'Generative Art',
+    client: 'MoMA',
+    year: '2024',
+    description: 'Procedurally generated flora that responds to user presence and environmental data.',
+    tags: ['Procedural', 'Organic', 'Generative', 'L-Systems'],
+    color: '#2d6a4f',
+    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&q=80'
+  },
+  {
+    id: 'portal-xr',
+    number: '09',
+    title: 'Portal XR',
+    category: 'Mixed Reality',
+    client: 'Meta',
+    year: '2024',
+    description: 'Cross-reality experience blending physical and digital spaces with spatial computing.',
+    tags: ['XR', 'Spatial', 'AR', 'VR'],
+    color: '#6c63ff',
+    image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=800&q=80'
+  },
+  {
+    id: 'echo-chamber',
+    number: '10',
+    title: 'Echo Chamber',
+    category: 'Sound Installation',
+    client: 'Sonos',
+    year: '2023',
+    description: 'Spatial audio installation where sound shapes the visual environment in real-time.',
+    tags: ['Audio', 'Spatial', 'Installation', 'Sound'],
+    color: '#2ec4b6',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'
+  }
+]

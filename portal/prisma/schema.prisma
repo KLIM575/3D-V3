@@ -1,0 +1,350 @@
+// Portal Prisma Schema
+// Run: npx prisma generate && npx prisma db push
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CLIENT
+  MANAGER
+  DEVELOPER
+  ADMIN
+}
+
+enum ProjectStatus {
+  DRAFT
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+}
+
+enum StageType {
+  SPECIFICATION
+  DESIGN
+  DEVELOPMENT
+  TESTING
+  DEPLOYMENT
+  SUPPORT
+}
+
+enum StageStatus {
+  PENDING
+  IN_PROGRESS
+  REVIEW
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+enum MessageType {
+  TEXT
+  FILE
+  SYSTEM
+}
+
+enum FileCategory {
+  FIGMA
+  CONTRACT
+  ACT
+  ARCHIVE
+  DESIGN
+  DOCUMENT
+  OTHER
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentProvider {
+  STRIPE
+  MANUAL
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?
+  image         String?
+  role          UserRole  @default(CLIENT)
+  emailVerified DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  accounts      Account[]
+  sessions      Session[]
+  projects      Project[]       @relation("ProjectClient")
+  managedProjects Project[]     @relation("ProjectManager")
+  developedProjects Project[]   @relation("ProjectDeveloper")
+  messages      Message[]       @relation("MessageAuthor")
+  comments      Comment[]       @relation("CommentAuthor")
+  files         File[]          @relation("FileUploader")
+  invoices      Invoice[]       @relation("InvoiceClient")
+  invitations   Invitation[]    @relation("InvitationSender")
+  receivedInvitations Invitation[] @relation("InvitationRecipient")
+
+  @@index([email])
+  @@index([role])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Invitation {
+  id          String   @id @default(cuid())
+  email       String
+  token       String   @unique
+  role        UserRole @default(CLIENT)
+  projectId   String?
+  senderId    String
+  recipientId String?
+  expiresAt   DateTime
+  acceptedAt  DateTime?
+  createdAt   DateTime @default(now())
+
+  sender      User     @relation("InvitationSender", fields: [senderId], references: [id])
+  recipient   User?    @relation("InvitationRecipient", fields: [recipientId], references: [id])
+  project     Project? @relation(fields: [projectId], references: [id])
+
+  @@index([email])
+  @@index([token])
+  @@index([projectId])
+}
+
+model Project {
+  id          String       @id @default(cuid())
+  title       String
+  description String?      @db.Text
+  status      ProjectStatus @default(DRAFT)
+  clientId    String
+  managerId   String?
+  developerId String?
+  startDate   DateTime?
+  endDate     DateTime?
+  budget      Decimal?     @db.Decimal(12, 2)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relations
+  client      User         @relation("ProjectClient", fields: [clientId], references: [id])
+  manager     User?        @relation("ProjectManager", fields: [managerId], references: [id])
+  developer   User?        @relation("ProjectDeveloper", fields: [developerId], references: [id])
+  stages      Stage[]
+  messages    Message[]
+  files       File[]
+  invoices    Invoice[]
+  invitations Invitation[]
+
+  @@index([clientId])
+  @@index([managerId])
+  @@index([developerId])
+  @@index([status])
+}
+
+model Stage {
+  id          String      @id @default(cuid())
+  projectId   String
+  type        StageType
+  title       String
+  description String?     @db.Text
+  status      StageStatus @default(PENDING)
+  order       Int         @default(0)
+  startDate   DateTime?
+  dueDate     DateTime?
+  completedAt DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  project     Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tasks       Task[]
+  messages    Message[]
+  files       File[]
+
+  @@index([projectId])
+  @@index([type])
+  @@index([status])
+  @@unique([projectId, type])
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  stageId     String
+  title       String
+  description String?  @db.Text
+  order       Int      @default(0)
+  completed   Boolean  @default(false)
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  stage       Stage    @relation(fields: [stageId], references: [id], onDelete: Cascade)
+
+  @@index([stageId])
+}
+
+model Message {
+  id        String      @id @default(cuid())
+  projectId String
+  stageId   String?
+  authorId  String
+  content   String      @db.Text
+  type      MessageType @default(TEXT)
+  metadata  Json?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  // Relations
+  project   Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  stage     Stage?      @relation(fields: [stageId], references: [id], onDelete: SetNull)
+  author    User        @relation("MessageAuthor", fields: [authorId], references: [id])
+  comments  Comment[]
+
+  @@index([projectId])
+  @@index([stageId])
+  @@index([authorId])
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  messageId String
+  authorId  String
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  author    User     @relation("CommentAuthor", fields: [authorId], references: [id])
+
+  @@index([messageId])
+  @@index([authorId])
+}
+
+model File {
+  id          String       @id @default(cuid())
+  projectId   String
+  stageId     String?
+  uploaderId  String
+  name        String
+  originalName String
+  mimeType    String
+  size        Int
+  category    FileCategory @default(OTHER)
+  url         String
+  path        String
+  metadata    Json?
+  createdAt   DateTime     @default(now())
+
+  // Relations
+  project     Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  stage       Stage?       @relation(fields: [stageId], references: [id], onDelete: SetNull)
+  uploader    User         @relation("FileUploader", fields: [uploaderId], references: [id])
+
+  @@index([projectId])
+  @@index([stageId])
+  @@index([uploaderId])
+  @@index([category])
+}
+
+model Invoice {
+  id              String          @id @default(cuid())
+  projectId       String
+  clientId        String
+  number          String          @unique
+  amount          Decimal         @db.Decimal(12, 2)
+  currency        String          @default("RUB")
+  status          InvoiceStatus   @default(DRAFT)
+  provider        PaymentProvider @default(STRIPE)
+  providerId      String?         // Stripe PaymentIntent ID
+  description     String?         @db.Text
+  dueDate         DateTime?
+  paidAt          DateTime?
+  metadata        Json?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  project         Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  client          User            @relation("InvoiceClient", fields: [clientId], references: [id])
+  payments        Payment[]
+
+  @@index([projectId])
+  @@index([clientId])
+  @@index([status])
+  @@index([providerId])
+}
+
+model Payment {
+  id          String   @id @default(cuid())
+  invoiceId   String
+  amount      Decimal  @db.Decimal(12, 2)
+  currency    String   @default("RUB")
+  provider    PaymentProvider
+  providerId  String   // Stripe Charge ID
+  status      String
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+  @@index([providerId])
+}
+
+model Settings {
+  id                String   @id @default(cuid())
+  key               String   @unique
+  value             String   @db.Text
+  description       String?
+  updatedAt         DateTime @updatedAt
+}

@@ -1,0 +1,44 @@
+:root {
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --c-bg: #050507;
+  --c-bg-elevated: #0a0a0d;
+  --c-text: #ffffff;
+  --c-text-muted: #8899aa;
+  --c-muted: #5a6a7a;
+  --c-cyan: #00f0ff;
+  --c-cyan-dim: #00c8db;
+  --c-line: rgba(255, 255, 255, 0.06);
+  --c-line-strong: rgba(255, 255, 255, 0.12);
+  --c-card: rgba(15, 15, 18, 0.8);
+  --c-card-hover: rgba(20, 20, 24, 0.95);
+  --c-overlay: rgba(5, 5, 7, 0.9);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 0.2s var(--ease-out);
+  --transition-base: 0.4s var(--ease-out);
+  --transition-slow: 0.7s var(--ease-out);
+
+  --container: 1440px;
+  --header-h: 80px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --c-bg: #fafafa;
+    --c-bg-elevated: #ffffff;
+    --c-text: #0a0a0d;
+    --c-text-muted: #5a6a7a;
+    --c-muted: #8899aa;
+    --c-cyan: #00a8c8;
+    --c-cyan-dim: #0090aa;
+    --c-line: rgba(10, 10, 13, 0.08);
+    --c-line-strong: rgba(10, 10, 13, 0.15);
+    --c-card: rgba(255, 255, 255, 0.9);
+    --c-card-hover: rgba(255, 255, 255, 1);
+    --c-overlay: rgba(250, 250, 250, 0.95);
+  }
+}

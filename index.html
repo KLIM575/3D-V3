@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLIM DUSHKIN DESIGN — Creative Digital Experiences</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23050507'/%3E%3Ctext x='32' y='42' font-family='sans-serif' font-size='28' font-weight='700' fill='%2300f0ff' text-anchor='middle'%3EKD%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="KLIM DUSHKIN — Architect, Designer, Developer. Creating immersive digital experiences of any complexity. Websites that push the boundaries of the web.">
+  <meta property="og:title" content="KLIM DUSHKIN DESIGN">
+  <meta property="og:description" content="Architect. Designer. Developer. Immersive digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/pavel.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://klimdushkin.design/#person",
+        "name": "Klim Dushkin",
+        "jobTitle": "Creative Architect, Designer & Developer",
+        "url": "https://klimdushkin.design",
+        "email": "mailto:hello@klimdushkin.design",
+        "telephone": "+7-914-200-81-18",
+        "worksFor": { "@id": "https://klimdushkin.design/#organization" },
+        "knowsAbout": ["Web Development", "3D Graphics", "Motion Design", "Creative Direction", "Interactive Experiences"]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://klimdushkin.design/#organization",
+        "name": "Klim Dushkin Design",
+        "url": "https://klimdushkin.design",
+        "email": "mailto:hello@klimdushkin.design",
+        "telephone": "+7-914-200-81-18",
+        "founder": { "@id": "https://klimdushkin.design/#person" },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://klimdushkin.design/#website",
+        "url": "https://klimdushkin.design",
+        "name": "KLIM DUSHKIN DESIGN — Creative Digital Experiences",
+        "description": "Architect, Designer, Developer. Creating immersive digital experiences of any complexity.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://klimdushkin.design/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#page-home" class="skip-link">Skip to content</a>
+  <div id="loading" role="status" aria-live="polite">
+    <div class="loading-logo">KLIM <span>DUSHKIN</span></div>
+    <div class="loading-bar-wrap"><div class="loading-bar" id="loadingBar"></div></div>
+    <div class="loading-text">Loading Experience</div>
+  </div>
+
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+  <div id="progressBar" aria-hidden="true"></div>
+
+  <div class="top-bar">
+    <div class="brand" data-nav="home" data-magnetic="0.4" role="button" tabindex="0" aria-label="Go to home">KLIM <span>DUSHKIN</span></div>
+    <nav class="top-links" aria-label="Primary navigation">
+      <a href="#page-home" data-nav="home" class="active" data-magnetic="0.3">Home</a>
+      <a href="#page-work" data-nav="work" data-magnetic="0.3">Work</a>
+      <a href="#page-about" data-nav="about" data-magnetic="0.3">About</a>
+      <a href="#page-services" data-nav="services" data-magnetic="0.3">Services</a>
+      <a href="#page-contact" data-nav="contact" data-magnetic="0.3">Contact</a>
+    </nav>
+  </div>
+
+  <div id="multiplayer" aria-hidden="true">
+    <div class="mp-dot"></div>
+    <span class="mp-text" id="mpText">1 online</span>
+  </div>
+
+  <div id="app">
+    <!-- HOME -->
+    <div class="page active" id="page-home" style="view-transition-name: page-home;">
+      <div class="home-content">
+        <div class="home-meta-top">
+          <span class="kicker">Portfolio &mdash; 2026</span>
+          <span class="home-availability"><span class="status-dot"></span>Available for work</span>
+        </div>
+        <h1 class="home-title">KLIM<br>DUSHKIN</h1>
+        <div class="home-bottom">
+          <p class="home-subtitle">Designer &middot; Architect &middot; <b>Developer</b></p>
+          <p class="home-tagline">Создаю иммерсивные цифровые experience любой сложности. От концепции до реализации — сайты, которые запоминаются.</p>
+          <ul class="home-meta">
+            <li><span>Focus</span><b>WebGL · 3D · Interaction</b></li>
+            <li><span>Base</span><b>Russia — Worldwide</b></li>
+            <li><span>Status</span><b>Open to projects</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <span>Immersive Experiences</span><i>&#10039;</i><span>WebGL Development</span><i>&#10039;</i><span>3D Visualization</span><i>&#10039;</i><span>Interactive Design</span><i>&#10039;</i><span>Creative Coding</span><i>&#10039;</i>
+          </div>
+          <div class="marquee-group">
+            <span>Immersive Experiences</span><i>&#10039;</i><span>WebGL Development</span><i>&#10039;</i><span>3D Visualization</span><i>&#10039;</i><span>Interactive Design</span><i>&#10039;</i><span>Creative Coding</span><i>&#10039;</i>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint" id="scrollHint">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+      <div class="page-footer">
+        <span>&copy; 2026 KLIM DUSHKIN</span>
+        <span>ALL RIGHTS RESERVED</span>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div class="page" id="page-work" style="view-transition-name: page-work;">
+      <div class="work-content">
+        <div class="work-header">
+          <div class="kicker">01 &mdash; Work</div>
+          <h2>Selected<br>Work</h2>
+          <p>Проекты, которые определяют границы возможного</p>
+        </div>
+        <div class="work-filters" id="workFilters"></div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page" id="page-about" style="view-transition-name: page-about;">
+      <div class="about-content">
+        <div class="about-inner">
+          <div class="about-header">
+            <div class="kicker">02 &mdash; About</div>
+            <h2>Обо мне</h2>
+            <p>Дизайнер. Архитектор. Создатель цифровых миров.</p>
+          </div>
+          <div class="about-bio">
+            <div class="about-photo">
+              <span class="about-photo-initials">KD</span>
+            </div>
+            <div class="about-text">
+              <h3>Душкин Клим Анатольевич</h3>
+              <p>Архитектор и дизайнер с глубокой страстью к созданию <span class="highlight">иммерсивных цифровых переживаний</span>. Верю, что каждый проект — это история, которую нужно рассказать через код, дизайн и технологии.</p>
+              <p>Специализируюсь на <span class="highlight">WebGL, 3D-графике, интерактивных инсталляциях</span> и сложных веб-приложениях. Каждый проект — это баланс между эстетикой и функциональностью.</p>
+              <p>Работаю с клиентами по всему миру, создавая решения, которые <span class="highlight">выходят за рамки обычного</span>.</p>
+            </div>
+          </div>
+          <div class="skills-section">
+            <h3>Навыки & Технологии</h3>
+            <div class="skills-grid" id="skillsGrid"></div>
+          </div>
+          <div class="timeline-section">
+            <h3>Путь</h3>
+            <div class="timeline" id="timeline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="page" id="page-services" style="view-transition-name: page-services;">
+      <div class="services-content">
+        <div class="services-inner">
+          <div class="services-header">
+            <div class="kicker">03 &mdash; Services</div>
+            <h2>Услуги</h2>
+            <p>Полный цикл создания цифровых продуктов</p>
+          </div>
+          <div class="services-grid" id="servicesGrid"></div>
+          <div class="process-section">
+            <h3>Процесс работы</h3>
+            <div class="process-steps" id="processSteps"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="page" id="page-contact" style="view-transition-name: page-contact;">
+      <div class="contact-content">
+        <div class="contact-inner">
+          <div class="contact-header">
+            <div class="kicker">04 &mdash; Contact</div>
+            <h2>Связаться</h2>
+            <p>Давайте создадим что-то невероятное вместе</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div class="contact-item" data-tilt="3">
+                <h4>Имя</h4>
+                <p>Душкин Клим Анатольевич</p>
+              </div>
+              <div class="contact-item" data-tilt="3">
+                <h4>Телефон</h4>
+                <p><a href="tel:+79142008118">+7 (914) 200-81-18</a></p>
+              </div>
+              <div class="contact-item" data-tilt="3">
+                <h4>Email</h4>
+                <p><a href="mailto:hello@klimdushkin.design">hello@klimdushkin.design</a></p>
+              </div>
+              <div class="contact-item" data-tilt="3">
+                <h4>Локация</h4>
+                <p>Россия, доступен worldwide</p>
+              </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" name="email" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group full-width">
+                <input type="text" name="subject" placeholder="Тема проекта">
+              </div>
+              <div class="form-group full-width">
+                <textarea name="message" placeholder="Расскажите о вашем проекте..." required></textarea>
+              </div>
+              <button type="submit" class="submit-btn" data-magnetic="0.3">Отправить заявку</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Radial Menu -->
+  <div id="radialMenu">
+    <div class="radial-items" id="radialItems" aria-hidden="true"></div>
+    <div class="radial-toggle" id="radialToggle" data-magnetic="0.4" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </div>
+  </div>
+
+  <!-- Mobile Tabs -->
+  <nav class="mobile-tabs" aria-label="Mobile navigation">
+    <div class="mobile-tabs-inner">
+      <div class="mobile-tab active" data-nav="home" data-magnetic="0.3" role="button" tabindex="0" aria-label="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </div>
+      <div class="mobile-tab" data-nav="work" data-magnetic="0.3" role="button" tabindex="0" aria-label="Work">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>Work</span>
+      </div>
+      <div class="mobile-tab" data-nav="about" data-magnetic="0.3" role="button" tabindex="0" aria-label="About">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>About</span>
+      </div>
+      <div class="mobile-tab" data-nav="services" data-magnetic="0.3" role="button" tabindex="0" aria-label="Services">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Services</span>
+      </div>
+      <div class="mobile-tab" data-nav="contact" data-magnetic="0.3" role="button" tabindex="0" aria-label="Contact">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Contact</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Project Modal -->
+  <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="modal-close" id="modalClose" data-magnetic="0.3" role="button" tabindex="0" aria-label="Close project details">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+    <div class="modal-content" id="modalContent" tabindex="-1"></div>
+  </div>
+
+  <!-- Chat Toggle -->
+  <div id="chatToggle" data-magnetic="0.4" role="button" tabindex="0" aria-label="Open AI chat" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </div>
+
+  <!-- AI Chat -->
+  <div id="aiChat" role="dialog" aria-modal="false" aria-label="AI assistant chat">
+    <div class="chat-header">
+      <h4><span class="chat-dot" aria-hidden="true"></span> KLIM AI Assistant</h4>
+      <div class="chat-close" id="chatClose" data-magnetic="0.3" role="button" tabindex="0" aria-label="Close AI chat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite"></div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Ask about projects, services..." aria-label="Chat message">
+      <button id="chatSend" data-magnetic="0.3" aria-label="Send message">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
